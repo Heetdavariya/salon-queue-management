@@ -38,3 +38,6 @@ start
 
 ## Prompt 10
 is everything okay i just create new repo on github then copy pasted command which i shpow on github here
+
+## Prompt 11
+is it okay or i have to make changes? [attached Vercel new project screenshot]
