@@ -1,21 +1,37 @@
+
 # Royal Touch Hair Studio — Salon Queue Management System
 
-> **Live Demo URL**:[ *Ready for deployment](https://salon-queue-management-oqns.vercel.app). or link to GitHub repository on Vercel/Netlify. (See [Deployment Instructions](#deployment-instructions) below).*
->
-> ### Staff Demo Quick Navigation
-> - **Reception Dashboard**: [/reception](file:///reception) (Tablet landscape layout — manage queue, add walk-ins, mark no-shows, call next)
-> - **Barber Station View**: [/barber/Ravi](file:///barber/Ravi) · [/barber/Amit](file:///barber/Amit) · [/barber/Suresh](file:///barber/Suresh) (Mobile view — live service timer, Done / Start, Break toggle)
-> - **Waiting Area TV Screen**: [/display](file:///display) (High-contrast landscape for 5-meter viewing, live pulse & audio chime, zero phone numbers)
-> - **Owner & Salon Settings**: [/admin](file:///admin) (Edit services, on-duty toggles, queue hours, 30-min auto cutoff, daily metrics, demo data reset)
-> - **Customer Join Queue**: [/join](file:///join) (Remote join, max 3 services, dynamic duration/price, 10-digit Indian phone validation)
-> - **Customer Live Status**: [/status/q-active-1](file:///status/q-active-1) (Live position, estimated wait, "Start coming" alert, "It's your turn!" gold pulse banner)
+A modern, bilingual salon queue management system designed for Royal Touch Hair Studio. It provides real-time queue management for receptionists, barbers, customers, and salon owners.
+
+**Live Demo:** [Royal Touch Hair Studio](https://salon-queue-management-oqns.vercel.app)
+
+**Repository:** [GitHub - salon-queue-management](https://github.com/Heetdavariya/salon-queue-management)
+
+For deployment instructions, see the [Deployment Instructions](#deployment-instructions) section below.
 
 ---
 
-## 23-Item Acceptance Test Results (docs/03-flows-rules.md)
+## Staff Demo Quick Navigation
+
+| Module | Route | Description |
+|---|---|---|
+| Reception Dashboard | [/reception](https://salon-queue-management-oqns.vercel.app/reception) | Tablet landscape layout — manage queue, add walk-ins, mark no-shows, and call next customer. |
+| Barber Station — Ravi | [/barber/Ravi](https://salon-queue-management-oqns.vercel.app/barber/Ravi) | Mobile barber view — live service timer, Start/Done controls, and break toggle. |
+| Barber Station — Amit | [/barber/Amit](https://salon-queue-management-oqns.vercel.app/barber/Amit) | Mobile barber view — live service timer and availability controls. |
+| Barber Station — Suresh | [/barber/Suresh](https://salon-queue-management-oqns.vercel.app/barber/Suresh) | Mobile barber view — live service timer and availability controls. |
+| Waiting Area TV Screen | [/display](https://salon-queue-management-oqns.vercel.app/display) | High-contrast landscape display for 5-meter viewing, live pulse and audio chime, with no customer phone numbers. |
+| Owner & Salon Settings | [/admin](https://salon-queue-management-oqns.vercel.app/admin) | Edit services, manage barber availability, configure queue hours, view daily metrics, and reset demo data. |
+| Customer Join Queue | [/join](https://salon-queue-management-oqns.vercel.app/join) | Remote queue joining, maximum 3 services, dynamic duration and pricing, and 10-digit Indian phone validation. |
+| Customer Live Status | [/status/q-active-1](https://salon-queue-management-oqns.vercel.app/status/q-active-1) | Live queue position, estimated waiting time, "Start coming" alert, and "It's your turn!" gold pulse banner. |
+
+---
+
+## 23-Item Acceptance Test Results
+
+Reference: `docs/03-flows-rules.md`
 
 | # | Acceptance Requirement | Test Suite & Method | Status |
-|---|------------------------|---------------------|:------:|
+|---|---|---|:---:|
 | 1 | Join with two services; total duration and price equal sum | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 2 | Selecting a fourth service is prevented with clear explanation | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 3 | Invalid or incomplete phone number is rejected (10 digits) | `tests/acceptanceChecklist.test.ts` | **PASS** |
@@ -25,55 +41,108 @@
 | 7 | Any-barber customer can be assigned to any available barber | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 8 | Barber with active Called/In-chair assignment cannot receive another customer | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 9 | Barber on break or off-duty receives no new assignment | `tests/acceptanceChecklist.test.ts` | **PASS** |
-| 10 | Call next transitions status from WAITING to CALLED & syncs TV | `tests/acceptanceChecklist.test.ts` | **PASS** |
+| 10 | Call next transitions status from WAITING to CALLED and syncs TV | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 11 | Start changes status to IN_CHAIR and initializes service timer | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 12 | Done changes status to DONE and clears active assignment across all views | `tests/acceptanceChecklist.test.ts` | **PASS** |
-| 13 | Called customer can be marked No-show after 10 min with confirmation | `tests/acceptanceChecklist.test.ts` | **PASS** |
+| 13 | Called customer can be marked No-show after 10 minutes with confirmation | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 14 | No-show customer re-added as walk-in receives new token at queue tail | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 15 | Customer cancellation requires confirmation and removes active spot | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 16 | Closed online queue disables remote join but allows receptionist walk-ins | `tests/acceptanceChecklist.test.ts` | **PASS** |
-| 17 | Online joining closes automatically 30 min before closing time | `tests/acceptanceChecklist.test.ts` | **PASS** |
-| 18 | Estimated wait never displays 0 when people ahead and never divides by 0 | `tests/acceptanceChecklist.test.ts` | **PASS** |
+| 17 | Online joining closes automatically 30 minutes before closing time | `tests/acceptanceChecklist.test.ts` | **PASS** |
+| 18 | Estimated wait never displays 0 when people are ahead and never divides by 0 | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 19 | Estimated wait decreases when customers finish or barbers become available | `tests/acceptanceChecklist.test.ts` | **PASS** |
-| 20 | English & Gujarati dictionaries have 100% complete parity | `tests/acceptanceChecklist.test.ts` | **PASS** |
-| 21 | Multi-tab views stay in sync via BroadcastChannel & LocalStorage (<50ms) | `tests/acceptanceChecklist.test.ts` | **PASS** |
+| 20 | English and Gujarati dictionaries have 100% complete parity | `tests/acceptanceChecklist.test.ts` | **PASS** |
+| 21 | Multi-tab views stay in sync via BroadcastChannel and LocalStorage (<50ms) | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 22 | TV display strictly omits customer phone numbers for privacy | `tests/acceptanceChecklist.test.ts` | **PASS** |
 | 23 | Refreshing application preserves queue entries and salon settings | `tests/acceptanceChecklist.test.ts` | **PASS** |
 
-**Summary: 23 out of 23 Acceptance Checklist Items Passed (100% Pass Rate)**
+**Acceptance Test Summary: 23 out of 23 items passed (100% pass rate).**
 
 ---
 
 ## Technical Stack & Architecture
 
-- **Frontend**: React 18, Vite 5, TypeScript 5, Tailwind CSS
-- **Design Tokens**: Charcoal `#1F2937`, Restrained Gold `#D4A017`, Warm Neutrals (`#F9FAFB`, `#F3F4F6`), minimum 44px touch targets
-- **Icons**: Lucide React (Clean accessible SVG icons, no emojis)
-- **Routing**: React Router DOM v6
-- **Central Domain**: `src/domain/queueRules.ts` & `src/domain/types.ts`
-- **Real-Time Cross-Tab Synchronization**: `BroadcastChannel('royal_touch_salon_sync')` backed by `localStorage` persistence (`royal_touch_salon_queue_v1` and `royal_touch_salon_settings_v1`)
-- **Internationalization**: Complete bilingual dictionary (`src/i18n/translations.ts`) for English and Gujarati (ગુજરાતી) with language switcher persisted in localStorage.
+### Technology Stack
 
-```
-src/
-├── domain/            # Pure centralized queue domain logic & types
-│   ├── types.ts       # QueueEntry, Barber, Service, SalonSettings, etc.
-│   └── queueRules.ts  # FCFS algorithm, wait time calculation, validation, transitions
-├── context/
-│   └── SalonContext.tsx # Central store with BroadcastChannel & LocalStorage sync
-├── i18n/
-│   ├── index.tsx      # Language provider hook & context
-│   └── translations.ts# Full English/Gujarati bilingual dictionary (100% key parity)
-├── pages/
-│   ├── Home.tsx          # Route / : Salon landing, status summary, live queue preview
-│   ├── JoinQueue.tsx     # Route /join : Customer remote join, max 3 services, phone validation
-│   ├── MyStatus.tsx      # Route /status/:id : Real-time status, "Start coming", "It's your turn!"
-│   ├── Reception.tsx     # Route /reception : 3-barber stations, active timer, Call Next, Walk-in modal
-│   ├── BarberView.tsx    # Route /barber/:name : Live chair timer, Start/Done, Break toggle
-│   ├── TvDisplay.tsx     # Route /display : 5-meter landscape screen, audio chime, zero phone numbers
-│   └── AdminSettings.tsx # Route /admin : Services catalog, on-duty toggles, closing time, metrics
-└── mock/
-    └── seedData.ts       # Realistic Indian seed data (Ravi, Amit, Suresh; ₹ INR prices)
+- **Frontend:** React 18, Vite 5, TypeScript 5, Tailwind CSS
+- **Design Tokens:** Charcoal (`#1F2937`), Restrained Gold (`#D4A017`), Warm Neutrals (`#F9FAFB`, `#F3F4F6`)
+- **Touch Optimization:** Minimum 44px touch targets
+- **Icons:** Lucide React (accessible SVG icons, no emojis)
+- **Routing:** React Router DOM v6
+- **Central Domain Logic:** `src/domain/queueRules.ts` and `src/domain/types.ts`
+- **Internationalization:** English and Gujarati (`ગુજરાતી`)
+  
+### Real-Time Synchronization
+
+The application uses:
+
+- `BroadcastChannel('royal_touch_salon_sync')` for cross-tab communication.
+- `localStorage` for persistent queue and settings data.
+
+Storage keys:
+
+- `royal_touch_salon_queue_v1`
+- `royal_touch_salon_settings_v1`
+
+### Internationalization
+
+The application includes a complete bilingual dictionary in:
+
+`src/i18n/translations.ts`
+
+Features include:
+
+- English and Gujarati language support.
+- Language switcher.
+- Language preference persisted in localStorage.
+- Complete translation key parity.
+
+---
+
+## Project Structure
+
+```text
+salon-queue-management/
+│
+├── docs/
+├── public/
+├── tests/
+│   └── acceptanceChecklist.test.ts
+│
+├── src/
+│   ├── domain/
+│   │   ├── types.ts
+│   │   └── queueRules.ts
+│   │
+│   ├── context/
+│   │   └── SalonContext.tsx
+│   │
+│   ├── i18n/
+│   │   ├── index.tsx
+│   │   └── translations.ts
+│   │
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── JoinQueue.tsx
+│   │   ├── MyStatus.tsx
+│   │   ├── Reception.tsx
+│   │   ├── BarberView.tsx
+│   │   ├── TvDisplay.tsx
+│   │   └── AdminSettings.tsx
+│   │
+│   └── mock/
+│       └── seedData.ts
+│
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── postcss.config.js
+├── tailwind.config.js
+├── tsconfig.json
+├── tsconfig.node.json
+├── vercel.json
+└── README.md
 ```
 
 ---
@@ -81,31 +150,60 @@ src/
 ## Local Setup & Development
 
 ### Prerequisites
-- Node.js $\ge 18$
-- npm $\ge 9$
+
+Make sure you have installed:
+
+- Node.js >= 18
+- npm >= 9
+- Git
 
 ### Installation
+
+Clone the repository:
+
 ```bash
-# Clone or navigate to the project directory
-cd salon
+git clone https://github.com/Heetdavariya/salon-queue-management.git
+```
 
-# Install dependencies
+Navigate to the project directory:
+
+```bash
+cd salon-queue-management
+```
+
+Install dependencies:
+
+```bash
 npm install
+```
 
-# Start development server
+Start the development server:
+
+```bash
 npm run dev
 ```
-Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+Open the application in your browser:
+
+`http://localhost:5173`
 
 ### Running Automated Tests & Linting
+
+Run all 59 unit, domain, and acceptance tests:
+
 ```bash
-# Run all 59 unit, domain, and acceptance tests
 npm test
+```
 
-# Run TypeScript type-checker
+Run the TypeScript type-checker:
+
+```bash
 npm run lint
+```
 
-# Run production build
+Create a production build:
+
+```bash
 npm run build
 ```
 
@@ -113,36 +211,82 @@ npm run build
 
 ## Deployment Instructions
 
-The project is structured with production SPA routing ready for deployment on Vercel, Netlify, or GitHub Pages.
+The project is structured for Single Page Application (SPA) deployment on Vercel and Netlify.
 
 ### Deploy to Vercel (Recommended)
-1. Push the code to a GitHub repository or use the Vercel CLI:
-   ```bash
-   npm i -g vercel
-   vercel
-   ```
-2. Build Command: `npm run build`
-3. Output Directory: `dist`
-4. The included [vercel.json](file:///c:/Users/HEET/Desktop/salon/vercel.json) automatically routes all requests (`/(.*)`) to `/index.html` for client-side routing.
+
+1. Push your project to GitHub.
+2. Open [Vercel](https://vercel.com/).
+3. Select **Add New Project**.
+4. Import your `salon-queue-management` GitHub repository.
+5. Configure the following build settings:
+
+   | Setting | Value |
+   |---|---|
+   | Framework Preset | Vite |
+   | Build Command | `npm run build` |
+   | Output Directory | `dist` |
+   | Install Command | `npm install` |
+
+6. Click **Deploy**.
+
+The included `vercel.json` is intended to route application requests to `index.html` for React Router client-side navigation.
 
 ### Deploy to Netlify
-1. Connect repository in Netlify or run `netlify deploy --prod --dir=dist`.
-2. Ensure redirects are configured (an `_redirects` file with `/*  /index.html  200`).
+
+1. Open [Netlify](https://www.netlify.com/).
+2. Import your GitHub repository.
+3. Configure the following:
+
+   | Setting | Value |
+   |---|---|
+   | Build Command | `npm run build` |
+   | Publish Directory | `dist` |
+
+4. Configure SPA redirects using a `_redirects` file in the public directory:
+
+```text
+/*  /index.html  200
+```
+
+5. Deploy the project.
 
 ---
 
 ## Environment Variables
 
-See [.env.example](file:///c:/Users/HEET/Desktop/salon/.env.example) for variable configurations:
+Refer to `.env.example` in the project root.
+
+Example configuration:
+
 ```env
 # Salon Application Port
 PORT=5173
 
-# Optional: Remote Supabase database credentials (if connecting remote real-time backend)
+# Optional: Remote Supabase database credentials
+# Required only if connecting a remote real-time backend.
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 ```
-*(By default, the application runs in self-contained local demo mode with zero-latency cross-tab synchronization via `BroadcastChannel` and persistent `localStorage`).*
-#   s a l o n - q u e u e - m a n a g e m e n t 
- 
- 
+
+**Default Mode:** The application runs in self-contained local demo mode using `BroadcastChannel` for cross-tab synchronization and `localStorage` for persistent data.
+
+---
+
+## Important Notes
+
+- The application supports English and Gujarati.
+- Customer phone numbers are not displayed on the public TV screen.
+- Queue data and salon settings are persisted in localStorage.
+- Cross-tab synchronization uses BroadcastChannel.
+- Online queue joining automatically closes 30 minutes before salon closing time.
+- Receptionists can still add walk-in customers when online joining is closed.
+
+---
+
+## License
+
+This project is developed for Royal Touch Hair Studio.
+
+All rights reserved unless otherwise specified.
+```
