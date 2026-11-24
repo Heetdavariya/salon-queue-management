@@ -1,3 +1,4 @@
+The MAIN PROMPT https://github.com/Heetdavariya/salon-queue-management/blob/main/ANTIGRAVITY_MASTER_PROMPT.md
 # Prompt Log
 
 All prompts provided by the user in order:
