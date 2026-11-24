@@ -1,6 +1,6 @@
 # Royal Touch Hair Studio — Salon Queue Management System
 
-> **Live Demo URL**: *Ready for deployment. Run `npx vercel` or link to GitHub repository on Vercel/Netlify. (See [Deployment Instructions](#deployment-instructions) below).*
+> **Live Demo URL**:[ *Ready for deployment](https://salon-queue-management-oqns.vercel.app). or link to GitHub repository on Vercel/Netlify. (See [Deployment Instructions](#deployment-instructions) below).*
 >
 > ### Staff Demo Quick Navigation
 > - **Reception Dashboard**: [/reception](file:///reception) (Tablet landscape layout — manage queue, add walk-ins, mark no-shows, call next)
@@ -143,5 +143,6 @@ VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
 ```
 *(By default, the application runs in self-contained local demo mode with zero-latency cross-tab synchronization via `BroadcastChannel` and persistent `localStorage`).*
-#   s a l o n - q u e u e - m a n a g e m e n t  
+#   s a l o n - q u e u e - m a n a g e m e n t 
+ 
  
