@@ -41,3 +41,6 @@ is everything okay i just create new repo on github then copy pasted command whi
 
 ## Prompt 11
 is it okay or i have to make changes? [attached Vercel new project screenshot]
+
+## Prompt 12
+there is some issue which i am facing while deploying can you solve that ? [attached Vercel build log screenshot showing npm error Invalid Version]
